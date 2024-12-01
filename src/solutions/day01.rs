@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn parse(input: &str) -> (Vec<i32>, Vec<i32>) {
     input
         .lines()
@@ -27,17 +29,13 @@ pub fn part1(input: &str) -> i32 {
 pub fn part2(input: &str) -> i32 {
     let (left, right) = parse(input);
 
-    let mut sum = 0;
+    let mut seen = HashMap::<i32, i32>::new();
 
-    for l in &left {
-        let mut seen = 0;
-        for r in &right {
-            if l == r {
-                seen += 1;
-            }
-        }
-        sum += seen * l;
+    for r in right {
+        *seen.entry(r).or_insert(0) += 1;
     }
 
-    sum
+    left.iter()
+        .filter_map(|l| Some(seen.get(l)? * l))
+        .sum::<i32>()
 }

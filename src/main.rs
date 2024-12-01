@@ -8,7 +8,7 @@ fn main() -> Result<()> {
     let input = fs::read_to_string("./src/input/day01.txt")?;
 
     let start = Instant::now();
-    let solution = solutions::day01::part1(&input);
+    let solution = solutions::day01::part2(&input);
     let elapsed = start.elapsed();
 
     println!("{solution}");
