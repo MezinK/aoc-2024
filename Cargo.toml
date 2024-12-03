@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 eyre = { version = "*"}
 itertools = { version = "*" }
+regex = { version = "*" }
 
 [lints.rust]
 unused = "allow"
