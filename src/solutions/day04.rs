@@ -22,7 +22,7 @@ fn find_xmas(grid: &[Vec<char>]) -> usize {
         for col_idx in 0..cols {
             for &(dir_r, dir_c) in &directions {
                 let mut matched = true;
-                for i in 0..word_len {
+                for (i, _) in word_chars.iter().enumerate().take(word_len) {
                     let nr = row_idx as isize + i as isize * dir_r;
                     let nc = col_idx as isize + i as isize * dir_c;
 
