@@ -5,11 +5,11 @@ use eyre::Result;
 mod solutions;
 
 fn main() -> Result<()> {
-    let input = fs::read_to_string("./src/input/day08.txt")?;
+    let input = fs::read_to_string("./src/input/day09.txt")?;
 
     let start: Instant = Instant::now();
 
-    let solution = solutions::day08::part2(&input);
+    let solution = solutions::day09::part2(&input);
 
     let elapsed = start.elapsed();
 
