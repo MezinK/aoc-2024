@@ -3,11 +3,11 @@ use std::iter::{self};
 pub fn part1(input: &str) -> u64 {
     let mut state = Vec::new();
 
-    for (chunk, id) in input.as_bytes().chunks(2).zip(1..) {
+    for (chunk, id) in input.as_bytes().chunks(2).zip(0..) {
         let block = chunk[0] & 0xF;
         let free = chunk.get(1).map_or(0, |&c| c & 0xF);
 
-        state.extend(iter::repeat(Some(id - 1)).take(block as usize));
+        state.extend(iter::repeat(Some(id)).take(block as usize));
         state.extend(iter::repeat(None).take(free as usize));
     }
 
@@ -57,7 +57,7 @@ pub fn part2(input: &str) -> usize {
     let mut state = Vec::new();
     let mut metas = Vec::new();
 
-    for (chunk, id) in input.as_bytes().chunks(2).zip(1..) {
+    for (chunk, id) in input.as_bytes().chunks(2).zip(0..) {
         let block = chunk[0] & 0xF;
         let free = chunk.get(1).map_or(0, |&c| c & 0xF);
 
@@ -67,7 +67,7 @@ pub fn part2(input: &str) -> usize {
         };
 
         metas.push(meta);
-        state.extend(iter::repeat(Some(id - 1)).take(block as usize));
+        state.extend(iter::repeat(Some(id)).take(block as usize));
         state.extend(iter::repeat(None).take(free as usize));
     }
 

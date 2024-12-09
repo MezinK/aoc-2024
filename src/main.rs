@@ -9,7 +9,7 @@ fn main() -> Result<()> {
 
     let start: Instant = Instant::now();
 
-    let solution = solutions::day09::part2(&input);
+    let solution = solutions::day09::part1(&input);
 
     let elapsed = start.elapsed();
 
